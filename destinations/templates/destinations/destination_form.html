@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ form.instance.pk|yesno:"Edit Destination,Create Destination" }}</title>
+</head>
+<body>
+    <h1>{{ form.instance.pk|yesno:"Edit Destination,Create Destination" }}</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="{% url 'destination_list' %}">Cancel</a>
+</body>
+</html>

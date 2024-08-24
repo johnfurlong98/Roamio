@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ destination.name }}</title>
+</head>
+<body>
+    <h1>{{ destination.name }}</h1>
+    <img src="{{ destination.image.url }}" alt="{{ destination.name }}">
+    <p>{{ destination.description }}</p>
+    <p>Location: {{ destination.location }}</p>
+    <p>Created by: {{ destination.author.username }} on {{ destination.created_on }}</p>
+    <p>Status: {{ destination.get_status_display }}</p>
+
+    <!-- Like and Comment Section (Placeholder) -->
+    <h3>Likes: {{ destination.likes.count }}</h3>
+    <button>Like</button>
+
+    <h3>Comments</h3>
+    <ul>
+        {% for comment in destination.comments.all %}
+            <li>{{ comment.author.username }}: {{ comment.content }}</li>
+        {% endfor %}
+    </ul>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="comment" rows="4"></textarea>
+        <button type="submit">Add Comment</button>
+    </form>
+
+    <a href="{% url 'destination_list' %}">Back to list</a>
+</body>
+</html>
