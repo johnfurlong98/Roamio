@@ -1,7 +1,7 @@
 from django import forms
-from .models import destination
+from .models import Destination
 
 class DestinationForm(forms.ModelForm):
     class Meta:
-        model = destination
+        model = Destination
         fields = ['name', 'description', 'location', 'image', 'status']

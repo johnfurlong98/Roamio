@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import destination  
+from .models import Destination  
 
 # Register your models here.
-admin.site.register(destination)
+admin.site.register(Destination)
 class DestinationAdmin(admin.ModelAdmin):
     list_display = ('name', 'location', 'author', 'status', 'created_on')
     list_filter = ('status', 'created_on', 'author')

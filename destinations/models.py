@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class destination(models.Model):
+class Destination(models.Model):
     name = models.CharField(max_length=200, unique=True)  # The name of the destination
     description = models.TextField()  # A detailed description of the destination
     location = models.CharField(max_length=200)  # The location of the destination
