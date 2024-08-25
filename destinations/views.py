@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from .serializers import DestinationSerializer
 from django.contrib.auth.models import User
 from django.utils import timezone 
+from rest_framework.decorators import action
 
 class DestinationViewset(viewsets.ModelViewSet):
 
@@ -89,3 +90,29 @@ class DestinationViewset(viewsets.ModelViewSet):
         return HttpResponse('Destination Deleted')
         
 
+class DestinationTemplates(viewsets.ViewSet):
+
+    @action(detail=False, methods=['get'])
+    def get_destination_list(self, request): 
+        destinations = Destination.objects.all()
+        data = DestinationSerializer(destinations, many=True).data
+        return render(request, "destinations/destination_list.html", {"destinations": data})
+
+    @action(detail=False, methods=['get'])
+    def get_destination_detail(self, request, id):
+        destination = Destination.objects.get(id=id)
+        data = DestinationSerializer(destination).data
+        return render(request, "destinations/destination_detail.html", {"destination": data})
+
+    @action(detail=False, methods=['get'])
+    def get_destination_form(self, request):
+        if request.method == 'POST':
+            form = DestinationForm(request.POST)
+            if form.is_valid():
+                name = form.cleaned_data['name']
+                return HttpResponse('Created' + name)
+            else: 
+                return HttpResponse('Invalid Form')
+        else:
+            form = DestinationForm()
+            return render(request, "destinations/destination_form.html", {"form": form, "destination": "destination_list"})

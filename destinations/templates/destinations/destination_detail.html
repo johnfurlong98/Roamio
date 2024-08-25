@@ -12,6 +12,8 @@
     <p>Location: {{ destination.location }}</p>
     <p>Created by: {{ destination.author.username }} on {{ destination.created_on }}</p>
     <p>Status: {{ destination.get_status_display }}</p>
+    <form>
+    </form>
 
     <!-- Like and Comment Section (Placeholder) -->
     <h3>Likes: {{ destination.likes.count }}</h3>
@@ -29,6 +31,5 @@
         <button type="submit">Add Comment</button>
     </form>
 
-    <a href="{% url 'destination_list' %}">Back to list</a>
 </body>
 </html>
