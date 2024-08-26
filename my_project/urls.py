@@ -25,6 +25,7 @@ from users import views as users_views  # Ensure correct import here
 urlpatterns = [
 
     path('admin/', admin.site.urls),
+    path("accounts/", include("allauth.urls")),
     path('', include('destinations.urls')),  # Include the destinations app URLs
     path('', include('home.urls')),  # Include the home app's URLs
 ]

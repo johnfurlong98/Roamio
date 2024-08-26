@@ -1,35 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ destination.name }}</title>
-</head>
-<body>
-    <h1>{{ destination.name }}</h1>
-    <img src="{{ destination.image.url }}" alt="{{ destination.name }}">
-    <p>{{ destination.description }}</p>
-    <p>Location: {{ destination.location }}</p>
-    <p>Created by: {{ destination.author.username }} on {{ destination.created_on }}</p>
-    <p>Status: {{ destination.get_status_display }}</p>
-    <form>
-    </form>
+{% extends 'base.html' %}
+{% block title %}{{ destination.name }}{% endblock %}
 
-    <!-- Like and Comment Section (Placeholder) -->
-    <h3>Likes: {{ destination.likes.count }}</h3>
-    <button>Like</button>
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <!-- Destination Title -->
+            <h1 class="display-4 text-center mb-4">{{ destination.name }}</h1>
 
-    <h3>Comments</h3>
-    <ul>
-        {% for comment in destination.comments.all %}
-            <li>{{ comment.author.username }}: {{ comment.content }}</li>
-        {% endfor %}
-    </ul>
-    <form method="post">
-        {% csrf_token %}
-        <textarea name="comment" rows="4"></textarea>
-        <button type="submit">Add Comment</button>
-    </form>
+            <!-- Destination Image -->
+            <div class="text-center mb-4">
+                <img src="{{ destination.image.url }}" alt="{{ destination.name }}" class="img-fluid rounded">
+            </div>
 
-</body>
-</html>
+            <!-- Destination Details -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <p class="card-text">{{ destination.description }}</p>
+                    <p class="card-text"><strong>Location:</strong> {{ destination.location }}</p>
+                    <p class="card-text"><strong>Created by:</strong> {{ destination.author.username }} on {{ destination.created_on|date:"F j, Y" }}</p>
+                    <p class="card-text"><strong>Status:</strong> {{ destination.get_status_display }}</p>
+                </div>
+            </div>
+
+            <!-- Like and Comment Section -->
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <!-- Like Section -->
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="mb-0">Likes: {{ destination.likes.count }}</h4>
+                        <button class="btn btn-primary">Like</button>
+                    </div>
+
+                    <!-- Comments Section -->
+                    <h4>Comments</h4>
+                    <ul class="list-group mb-3">
+                        {% for comment in destination.comments.all %}
+                            <li class="list-group-item">
+                                <strong>{{ comment.author.username }}:</strong> {{ comment.content }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                    <!-- Add Comment Form -->
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <textarea name="comment" class="form-control" rows="4" placeholder="Add a comment..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-success">Add Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
