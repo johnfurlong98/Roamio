@@ -1,32 +1,160 @@
-.navbar {
-  color: #277bd4; /* Blue color */
-}
-.navbar-nav .nav-link.active {
-  color: #ffd700;
-  font-weight:  bold;
-}
-.container {
-  margin-top: 20px;
-}
-.text-center h1 {
-  color: #6a5acd; 
-}
-/* Ensure the body and html take up the full height of the viewport */
+/* Ensure body takes full height */
 html, body {
-  height: 100%;
-  margin: 0;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
-/* Flexbox to push the footer to the bottom */
-body {
-  display: flex;
-  flex-direction: column;
+
+/* Main should grow to fill available space */
+main {
+    flex-grow: 1;
+    background-color: #f5f5f5;
 }
-/* Make sure the content area grows to fill available space */
-.container {
-  flex: 1;
-}
+
 /* Footer styling */
 footer {
-  background-color: #343a40; /* Dark background for footer */
-  color: #f8f9fa; /* Light text color */
+    background-color: #4A90E2;
+    color: #ffffff;
+    margin: 0; /* Remove margin */
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #4A90E2;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #ffffff !important;
+}
+
+.nav-link {
+    color: #ffffff !important;
+}
+
+.nav-link.active {
+    color: #F8E71C !important;
+}
+
+/* Full Background Image for Signup and Login Pages */
+.signup-page, .login-page {
+    background-image: url('/static/images/pexels-asadphoto-1450353.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* Centered form with styling */
+.signup-page .main-bg, .login-page .main-bg {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Form Header */
+.signup-page form.signup h1, .login-page form.login h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #4A90E2; /* Custom blue color */
+    font-weight: bold;
+}
+
+/* Paragraph Text */
+.signup-page form.signup p, .login-page form.login p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Input Fields Styling */
+.signup-page form.signup input[type="text"],
+.signup-page form.signup input[type="password"],
+.signup-page form.signup input[type="email"],
+.signup-page form.signup select,
+.signup-page form.signup textarea,
+.login-page form.login input[type="text"],
+.login-page form.login input[type="password"],
+.login-page form.login input[type="email"],
+.login-page form.login select,
+.login-page form.login textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+    transition: border-color 0.3s ease;
+}
+
+/* Input Focus Effect */
+.signup-page form.signup input[type="text"]:focus,
+.signup-page form.signup input[type="password"]:focus,
+.signup-page form.signup input[type="email"]:focus,
+.signup-page form.signup select:focus,
+.signup-page form.signup textarea:focus,
+.login-page form.login input[type="text"]:focus,
+.login-page form.login input[type="password"]:focus,
+.login-page form.login input[type="email"]:focus,
+.login-page form.login select:focus,
+.login-page form.login textarea:focus {
+    border-color: #4A90E2; /* Blue border on focus */
+    outline: none;
+}
+
+/* Submit Button Styling */
+.signup-page form.signup button[type="submit"],
+.login-page form.login button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #4A90E2; /* Custom blue background */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button Hover Effect */
+.signup-page form.signup button[type="submit"]:hover,
+.login-page form.login button[type="submit"]:hover {
+    background-color: #357ABD; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Links Inside the Form */
+.signup-page form.signup a, .login-page form.login a {
+    color: #4A90E2;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* Link Hover Effect */
+.signup-page form.signup a:hover, .login-page form.login a:hover {
+    color: #357ABD; /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+/* Additional Text Styling */
+.signup-page form.signup p,
+.signup-page form.signup label,
+.login-page form.login p,
+.login-page form.login label {
+    font-size: 1rem;
+    color: #555; /* Subtle gray color */
+    font-weight: 500;
 }
