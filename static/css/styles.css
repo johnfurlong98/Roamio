@@ -14,9 +14,34 @@ main {
 
 /* Footer styling */
 footer {
-    background-color: #4A90E2;
+    background-color: #4A90E2; /* Custom blue background */
     color: #ffffff;
-    margin: 0; /* Remove margin */
+}
+
+/* Footer Container */
+.footer .container {
+    display: flex;
+    justify-content: space-between; /* Space between text and icons */
+    align-items: center;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px; /* Space between icons */
+    list-style: none; /* Remove default list styling */
+    padding-left: 0; /* Remove default padding */
+}
+
+.social-icons .list-inline-item a {
+    color: #ffffff; /* Icon color */
+    font-size: 1.5rem; /* Icon size */
+    transition: color 0.3s, transform 0.3s; /* Smooth hover effect */
+}
+
+.social-icons .list-inline-item a:hover {
+    color: #F8E71C; /* Hover color */
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
 }
 
 /* Navigation Bar */
@@ -231,4 +256,61 @@ footer {
 
 .form-page .btn-secondary:hover {
     background-color: #bbb;
+}
+
+/* Styles for the logout page */
+.logout-page {
+    background: #f5f5f5; /* Light gray background */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.main-bg {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.logout-page .btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+}
+
+.logout-page .btn-primary {
+    background-color: #4A90E2;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.logout-page .btn-primary:hover {
+    background-color: #357ABD;
+}
+
+.logout-page .btn-secondary {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+}
+
+.logout-page .btn-secondary:hover {
+    background-color: #bbb;
+}
+
+.logout-page h3 {
+    color: #4A90E2; /* Custom blue color */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.logout-page p {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 30px;
 }

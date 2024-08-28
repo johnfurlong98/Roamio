@@ -15,7 +15,11 @@
                 Location: {{ destination.location }}<br>
                 Description: {{ destination.description }}<br>
                 {% if destination.image %}
-                    <img src="{{ destination.image.url }}" alt="{{ destination.name }}" class="img-fluid" style="max-width: 300px;">
+                    {% if "placeholder" in destination.image.url %}
+                        <img src="" alt="placeholder image" class="img-fluid" style="max-width: 300px;">
+                    {% else %}
+                        <img src="" alt="{{ destination.name }}" class="img-fluid" style="max-width: 300px;">
+                    {% endif %}
                 {% endif %}
             </li>
         {% empty %}
