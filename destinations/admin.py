@@ -1,8 +1,7 @@
 from django.contrib import admin
-from .models import Destination  
+from .models import Destination, Comment 
 
 # Register your models here.
-admin.site.register(Destination)
 class DestinationAdmin(admin.ModelAdmin):
     list_display = ('name', 'location', 'author', 'status', 'created_on')
     list_filter = ('status', 'created_on', 'author')
@@ -11,3 +10,7 @@ class DestinationAdmin(admin.ModelAdmin):
     raw_id_fields = ('author',)
     date_hierarchy = 'created_on'
     ordering = ('status', 'created_on')
+
+admin.site.register(Destination)
+
+admin.site.register(Comment)

@@ -6,7 +6,10 @@
         <div class="col-md-8 offset-md-2">
             <!-- Destination Title -->
             <h1 class="display-4 text-center mb-4">{{ destination.name }}</h1>
-
+            <script>
+                let destination = '{{destination|escapejs}}'
+                console.log(destination)
+            </script>
             <!-- Destination Image -->
             <div class="text-center mb-4">
                 <img src="https://res.cloudinary.com/{{cloud_name}}/{{destination.featured_image}}" alt="{{ destination.name }}" class="img-fluid rounded">
@@ -17,7 +20,7 @@
                 <div class="card-body">
                     <p class="card-text">{{ destination.description }}</p>
                     <p class="card-text"><strong>Location:</strong> {{ destination.location }}</p>
-                    <p class="card-text"><strong>Created by:</strong> {{ destination.author.username }} on {{ destination.created_on|date:"F j, Y" }}</p>
+                    <p class="card-text"><strong>Created by:</strong> {{ destination.author }} on {{ destination.created_on|date:"F j, Y" }}</p>
                     <p class="card-text"><strong>Status:</strong> {{ destination.get_status_display }}</p>
                 </div>
             </div>
@@ -32,23 +35,31 @@
                     </div>
 
                     <!-- Comments Section -->
+                    <script>
+                        let comments = '{{comments|escapejs}}'
+                        console.log(comments)
+                    </script>
                     <h4>Comments</h4>
-                    <ul class="list-group mb-3">
-                        {% for comment in destination.comments.all %}
-                            <li class="list-group-item">
-                                <strong>{{ comment.author.username }}:</strong> {{ comment.content }}
-                            </li>
-                        {% endfor %}
-                    </ul>
-
                     <!-- Add Comment Form -->
                     <form method="post">
                         {% csrf_token %}
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <textarea name="comment" class="form-control" rows="4" placeholder="Add a comment..."></textarea>
+                        </div> -->
+                        <div clas = "form-group">
+                            {{ form.as_p }}
                         </div>
+
                         <button type="submit" class="btn btn-success">Add Comment</button>
                     </form>
+                    <ul class="list-group mb-3">
+                        {% for comment in comments %}
+                            <li class="list-group-item">
+                                <!-- <strong>{{ comment.user.username }}:</strong> {{ comment.text }} -->
+                                 {{comment.text}}
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
             </div>
         </div>

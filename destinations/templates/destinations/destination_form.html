@@ -52,7 +52,7 @@
             <div class="main-bg">
                 <h1>Create Destination</h1>
                 <form method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="csrfmiddlewaretoken" value="0Y1vJe5LYCH24kt8v8bz6P3Rj1kf4D5jtMYbjQB9rQ7xCFkFMPMEZX6HD4xvJES6">
+                    <!-- <input type="hidden" name="csrfmiddlewaretoken" value='{{csrf_token}}'>
                     
                     <div class="form-group">
                         <label for="id_name">Name:</label>
@@ -72,6 +72,10 @@
                     <div class="form-group">
                         <label for="id_image">Image:</label>
                         <input type="file" name="image" accept="image/*" id="id_image" class="form-control">
+                    </div> -->
+                    {% csrf_token %}
+                    <div clas = "form-group">
+                        {{ form.as_p }}
                     </div>
                     
                     <button type="submit" class="btn btn-primary">Save</button>

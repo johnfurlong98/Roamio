@@ -56,7 +56,10 @@
             </div>
         </div>
     </nav>
-
+    <script> 
+        let user = '{{user|escapejs}}'
+        console.log(user)
+    </script>
     <main>
         {% if user.is_authenticated %}
         <p class="text-end m-3">You are logged in as {{ user.username }}</p>
