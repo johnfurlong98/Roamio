@@ -10,14 +10,22 @@ from django.conf import settings
 
 class HomeViewSet(viewsets.ViewSet):
 
-    @action(detail=False, methods=['get'])
-    def destination_list(self, request): 
+    @action(detail=False, methods=["get"])
+    def destination_list(self, request):
         destinations = Destination.objects.all()
         serialized_data = DestinationSerializer(destinations, many=True).data
-        return render(request, 'home/index.html', {"destinations": serialized_data})
+        return render(request, "home/index.html", {"destinations": serialized_data})
+
 
 def index(request):
-    top_liked_destinations = Destination.objects.order_by('-likes')[:3]
+    top_liked_destinations = Destination.objects.order_by("-likes")[:3]
     serialized_data = DestinationSerializer(top_liked_destinations, many=True).data
     print(serialized_data)
-    return render(request, 'home/index.html', {"destination_list": serialized_data, 'cloud_name': settings.CLOUDINARY_CLOUD_NAME})
+    return render(
+        request,
+        "home/index.html",
+        {
+            "destination_list": serialized_data,
+            "cloud_name": settings.CLOUDINARY_CLOUD_NAME,
+        },
+    )
