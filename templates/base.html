@@ -31,11 +31,11 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="">Home</a>
+                        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.path == './destinations/' %}active{% endif %}"
-                            href="">Destinations</a>
+                            href="/destinations-list/">Destinations</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">

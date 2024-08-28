@@ -6,22 +6,31 @@
     <div class="text-center">
         <h1>Welcome to Roamio</h1>
     </div>
-    
+    <script>
+        let destination = '{{destination_list|escapejs}}'
+        console.log(destination)
+    </script>
     <h2>All Destinations</h2>
     <ul class="list-group">
         {% for destination in destination_list %}
+        <a href = 'destination-details/{{destination.id}}'>
+        <div>
             <li class="list-group-item">
+                
                 <strong>{{ destination.name }}</strong><br>
                 Location: {{ destination.location }}<br>
                 Description: {{ destination.description }}<br>
-                {% if destination.image %}
-                    {% if "placeholder" in destination.image.url %}
+                {% if destination.featured_image %}
+                    {% if "placeholder" in destination.featured_image %}
                         <img src="" alt="placeholder image" class="img-fluid" style="max-width: 300px;">
                     {% else %}
-                        <img src="" alt="{{ destination.name }}" class="img-fluid" style="max-width: 300px;">
+                        <img src="https://res.cloudinary.com/{{cloud_name}}/{{ destination.featured_image}}" alt="{{ destination.name }}" class="img-fluid" style="max-width: 300px;">
                     {% endif %}
                 {% endif %}
+            
             </li>
+        </div>
+    </a>
         {% empty %}
             <p>No destinations available.</p>
         {% endfor %}

@@ -9,7 +9,7 @@ from .serializers import DestinationSerializer
 from django.contrib.auth.models import User
 from django.utils import timezone 
 from rest_framework.decorators import action
-
+from django.conf import settings
 class DestinationViewset(viewsets.ModelViewSet):
 
     serializer_class = DestinationSerializer
@@ -102,7 +102,7 @@ class DestinationTemplates(viewsets.ViewSet):
     def get_destination_detail(self, request, id):
         destination = Destination.objects.get(id=id)
         data = DestinationSerializer(destination).data
-        return render(request, "destinations/destination_detail.html", {"destination": data})
+        return render(request, "destinations/destination_detail.html", {"destination": data, "cloud_name": settings.CLOUDINARY_CLOUD_NAME})
 
     @action(detail=False, methods=['get'])
     def get_destination_form(self, request):
