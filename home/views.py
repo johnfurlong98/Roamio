@@ -17,7 +17,7 @@ class HomeViewSet(viewsets.ViewSet):
         return render(request, 'home/index.html', {"destinations": serialized_data})
 
 def index(request):
-    destinations = Destination.objects.all()
-    serialized_data = DestinationSerializer(destinations, many=True).data
+    top_liked_destinations = Destination.objects.order_by('-likes')[:3]
+    serialized_data = DestinationSerializer(top_liked_destinations, many=True).data
     print(serialized_data)
     return render(request, 'home/index.html', {"destination_list": serialized_data, 'cloud_name': settings.CLOUDINARY_CLOUD_NAME})

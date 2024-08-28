@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Destination, Comment 
+from .models import Destination, Comment, UserCommentLikes, UserDestinationLikes
 
 # Register your models here.
 class DestinationAdmin(admin.ModelAdmin):
@@ -14,3 +14,6 @@ class DestinationAdmin(admin.ModelAdmin):
 admin.site.register(Destination)
 
 admin.site.register(Comment)
+
+admin.site.register(UserCommentLikes)
+admin.site.register(UserDestinationLikes)

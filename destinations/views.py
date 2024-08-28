@@ -9,6 +9,7 @@ from .serializers import DestinationSerializer, CommentSerializer
 from django.contrib.auth.models import User
 from django.utils import timezone 
 from rest_framework.decorators import action
+from rest_framework import status
 from django.conf import settings
 
 class DestinationViewset(viewsets.ModelViewSet):
@@ -62,20 +63,24 @@ class DestinationViewset(viewsets.ModelViewSet):
 
 
     def partial_update(self, request, id):
-        status = request.data.get('status', 1)
-
-        if not id:
-            return HttpResponse('No id provided')
-
-        try:
+        try: 
             destination = Destination.objects.get(id=id)
+            print(vars(request))
+            print(destination)
+            user = request._user.id
+
+            if UserDestinationLikes.objects.filter(user=user, destination=destination).exists():
+                return HttpResponse("Already Liked")
+        except Exception as e:
+            print(e)
+            return HttpResponse({"Missing Data"}, status=status.HTTP_400_BAD_REQUEST)
+        try: 
+            destination.likes +=1
+            destination.save()
+            serialized_data = DestinationSerializer(destination).data
+            return Response(serialized_data)
         except:
-            return HttpResponse('Destination does not exist')
-
-        destination.status = status 
-        destination.save()
-
-        return HttpResponse('Destination Updated!')
+            return HttpResponse("Error liking comment")
 
 
     def delete(self, request, id):
@@ -114,7 +119,6 @@ class DestinationTemplates(viewsets.ViewSet):
                 # url = reverse('destination-detail')
                 url = 'destination-detail'
                 return redirect(url,id=id)
-
 
         destination = Destination.objects.get(id=id)
         data = DestinationSerializer(destination).data
@@ -193,7 +197,7 @@ class CommentViewSet(viewsets.ModelViewSet):
     def partial_update(self, request, id):
         try: 
             comment = Comment.objects.get(id=id)
-            user = request.data['user']
+            user = request._user.id
             if UserCommentLikes.objects.filter(user=user, comment=comment).exists():
                 return HttpResponse("Already Liked")
         except:
