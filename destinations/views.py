@@ -1,24 +1,39 @@
-from django.shortcuts import render, get_object_or_404, redirect, reverse
-from django.http import HttpResponse
-from .models import Destination, Comment, UserCommentLikes, UserDestinationLikes
-from django.contrib.auth.decorators import login_required
-from .forms import DestinationForm, CommentForm
-from rest_framework import viewsets
-from rest_framework.response import Response
-from .serializers import DestinationSerializer, CommentSerializer
-from django.contrib.auth.models import User
-from django.utils import timezone
-from rest_framework.decorators import action
-from rest_framework import status
+"""
+Views for handling requests related to destinations and comments.
+
+This module defines views for handling CRUD operations for destinations
+and comments, as well as user interactions such as liking and commenting.
+"""
+
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404, redirect, render, reverse
+from django.utils import timezone
+from rest_framework import status, viewsets
+from rest_framework.decorators import action
+from rest_framework.response import Response
+
+from .forms import DestinationForm, CommentForm
+from .models import Destination, Comment, UserCommentLikes, UserDestinationLikes
+from .serializers import DestinationSerializer, CommentSerializer
 
 
 class DestinationViewset(viewsets.ModelViewSet):
+    """
+    ViewSet for handling operations on Destination objects.
+
+    Provides actions to list, create, update, and delete destinations.
+    """
 
     serializer_class = DestinationSerializer
     queryset = Destination.objects.none()
 
     def get_queryset(self, request):
+        """
+        Retrieve destinations based on query parameters.
+        """
         id = request.query_params.get("id", None)
         queryset = Destination.objects.all()
         if id:
@@ -29,6 +44,9 @@ class DestinationViewset(viewsets.ModelViewSet):
         return Response(data)
 
     def create(self, request):
+        """
+        Create a new destination.
+        """
         try:
             name = request.data["name"]
             location = request.data["location"]
@@ -63,6 +81,9 @@ class DestinationViewset(viewsets.ModelViewSet):
         return Response(data)
 
     def partial_update(self, request, id):
+        """
+        Increment the likes for a destination.
+        """
         try:
             destination = Destination.objects.get(id=id)
             print(vars(request))
@@ -85,6 +106,9 @@ class DestinationViewset(viewsets.ModelViewSet):
             return HttpResponse("Error liking comment")
 
     def delete(self, request, id):
+        """
+        Delete a destination by ID.
+        """
         if not id:
             return HttpResponse("No id provided")
 
@@ -98,6 +122,9 @@ class DestinationViewset(viewsets.ModelViewSet):
 
 
 class DestinationTemplates(viewsets.ViewSet):
+    """
+    ViewSet for rendering destination-related templates.
+    """
 
     @action(detail=False, methods=["get"])
     def get_destination_list(self, request):
@@ -109,6 +136,10 @@ class DestinationTemplates(viewsets.ViewSet):
 
     @action(detail=False, methods=["get", "post"])
     def get_destination_detail(self, request, id):
+        """
+        Render a detailed view of a specific destination.
+        Handle POST requests to add a comment.
+        """
         if request.method == "POST":
             form = CommentForm(request.POST)
             if form.is_valid():
@@ -139,6 +170,10 @@ class DestinationTemplates(viewsets.ViewSet):
 
     @action(detail=False, methods=["get"])
     def get_destination_form(self, request):
+        """
+        Render a form for creating or updating a destination.
+        Handle POST requests to save the destination.
+        """
         if request.method == "POST":
             form = DestinationForm(request.POST)
             if form.is_valid():
@@ -166,10 +201,18 @@ class DestinationTemplates(viewsets.ViewSet):
 
 
 class CommentViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for handling operations on Comment objects.
+
+    Provides actions to list, create, update, and delete comments.
+    """
 
     queryset = Comment.objects.all()
 
     def get_queryset(self, request):
+        """
+        Retrieve comments based on query parameters.
+        """
         destination = request.query_params.get("destination", None)
         user = request.query_params.get("user", None)
 
@@ -185,6 +228,9 @@ class CommentViewSet(viewsets.ModelViewSet):
         return Response(serialized_data)
 
     def create(self, request):
+        """
+        Create a new comment.
+        """
         try:
             destination = request.data["destination"]
             user = request.data["user"]
@@ -202,6 +248,9 @@ class CommentViewSet(viewsets.ModelViewSet):
         return Response(serialized_data)
 
     def partial_update(self, request, id):
+        """
+        Increment the likes for a comment.
+        """
         try:
             comment = Comment.objects.get(id=id)
             user = request._user.id
@@ -218,6 +267,9 @@ class CommentViewSet(viewsets.ModelViewSet):
             return HttpResponse("Error liking comment")
 
     def delete(self, request, id):
+        """
+        Delete a comment by ID.
+        """
         if not id:
             return HttpResponse("No id provided")
 

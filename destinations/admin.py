@@ -1,8 +1,21 @@
+"""
+Django admin configuration for managing Destination, Comment,
+UserCommentLikes, and UserDestinationLikes models.
+"""
+
 from django.contrib import admin
 from .models import Destination, Comment, UserCommentLikes, UserDestinationLikes
 
 
-# Register your models here.
+"""
+    Admin configuration for the Destination model.
+
+    This configuration customizes the admin interface for the Destination
+    model, including options for list display, filtering, searching, and
+    ordering.
+    """
+
+
 class DestinationAdmin(admin.ModelAdmin):
     list_display = ("name", "location", "author", "status", "created_on")
     list_filter = ("status", "created_on", "author")

@@ -131,7 +131,7 @@ footer {
 
 /* Full Background Image for Signup and Login Pages */
 .signup-page, .login-page {
-    background-image: url('/static/images/pexels-asadphoto-1450353.jpg');
+    background-image: url("/static/images/pexels-asadphoto-1450353.3dff8d24d3ff.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
