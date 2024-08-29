@@ -21,7 +21,7 @@
                     Description: {{ destination.description }}<br>
                     {% if destination.featured_image %}
                         {% if "placeholder" in destination.featured_image %}
-                            <img src="" alt="placeholder image" class="img-fluid placeholder-image">
+                            <img src="/static/images/pexels-asadphoto-1450353.jpg" alt="placeholder image" class="img-fluid placeholder-image">
                         {% else %}
                             <img src="https://res.cloudinary.com/{{cloud_name}}/{{ destination.featured_image}}" alt="{{ destination.name }}" class="img-fluid destination-image">
                         {% endif %}
