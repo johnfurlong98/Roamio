@@ -116,9 +116,6 @@ The choice of a background contributes to a clean and minimalist aesthetic, prov
 
 The logo name Roamio, serves as a visual representation of the website's name and theme. By incorporating elements related to travel, the logo reinforces the concept of discovery and adventure.
 
-<img src="readme/logo.png" alt="Roamio logo" width="360" ><br>
-
-
 ### Colour Scheme
 
 The color scheme for Roamio has been carefully selected to create a modern and visually appealing experience, reflecting the themes of exploration and travel.
