@@ -52,29 +52,8 @@
             <div class="main-bg">
                 <h1>Create Destination</h1>
                 <form method="post" enctype="multipart/form-data">
-                    <!-- <input type="hidden" name="csrfmiddlewaretoken" value='{{csrf_token}}'>
-                    
-                    <div class="form-group">
-                        <label for="id_name">Name:</label>
-                        <input type="text" name="name" required id="id_name" class="form-control">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="id_location">Location:</label>
-                        <input type="text" name="location" required id="id_location" class="form-control">
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="id_description">Description:</label>
-                        <textarea name="description" required id="id_description" class="form-control description-field"></textarea>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="id_image">Image:</label>
-                        <input type="file" name="image" accept="image/*" id="id_image" class="form-control">
-                    </div> -->
                     {% csrf_token %}
-                    <div clas = "form-group">
+                    <div class = "form-group">
                         {{ form.as_p }}
                     </div>
                     
