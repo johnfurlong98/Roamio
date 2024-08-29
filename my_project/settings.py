@@ -106,7 +106,12 @@ WSGI_APPLICATION = "my_project.wsgi.application"
 # }
 
 
-DATABASES = {"default": dj_database_url.parse(os.environ.get("DATABASE_URL"))}
+DATABASES = {
+    "default": dj_database_url.parse(os.environ.get("DATABASE_URL")),
+    "TEST": {
+        "ENGINE": "django.db.backends.sqlite3",
+    },
+}
 
 CSRF_TRUSTED_ORIGINS = ["https://*.codeinstitute-ide.net/", "https://*.herokuapp.com"]
 
