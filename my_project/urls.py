@@ -20,14 +20,14 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from destinations import views as destinations_views  # Ensure correct import here
-from users import views as users_views  # Ensure correct import here
+from users import views as users_views
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("accounts/", include("allauth.urls")),
     path("", include("destinations.urls")),  # Include the destinations app URLs
-    path("", include("home.urls")),  # Include the home app's URLs
+    path("", include("home.urls")),
 ]
 
 

@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "destinations",
     "home",
     "rest_framework",
+    "users",
 ]
 
 SITE_ID = 1
