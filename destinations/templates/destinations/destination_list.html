@@ -5,8 +5,6 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-
-<body>
     <script>
         const destinations = '{{ destinations }}'
         console.log(destinations)
@@ -30,6 +28,5 @@
             <p>No destinations available.</p>
         {% endfor %}
     </ul>
-</body>
 {% endblock %}
    
