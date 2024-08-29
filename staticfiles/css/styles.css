@@ -62,8 +62,75 @@ footer {
     color: #F8E71C !important;
 }
 
+/* Style for the welcome section */
+.welcome-section {
+    margin: 20px 0;
+}
+
+.welcome-title {
+    font-size: 2.5rem;
+    color: #4A90E2; /* Custom blue color */
+}
+
+/* Style for the home heading */
+.home-heading {
+    text-align: center;
+    font-size: 2rem;
+    color: #4A90E2; /* Custom blue color */
+    margin-bottom: 30px;
+}
+
+/* Style for the list-group and items */
+.list-group {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1200px; /* Optional: limits the width */
+}
+
+/* Style for each list item and link */
+.destination-link {
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Use parent text color */
+}
+
+.destination-item {
+    margin-bottom: 20px;
+}
+
+.list-group-item {
+    background-color: #ffffff; /* White background */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Padding inside the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.list-group-item:hover {
+    background-color: #f5f5f5; /* Slightly darker background on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Style for images */
+.img-fluid {
+    max-width: 300px; /* Restrict image width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 4px; /* Slightly rounded corners */
+    display: block; /* Ensure images are block elements */
+    margin-top: 10px; /* Space above images */
+}
+
+/* Style for no destinations message */
+.no-destinations {
+    text-align: center;
+    color: #555; /* Subtle gray color */
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
 /* Full Background Image for Signup and Login Pages */
-.signup-page, .login-page {
+.signup-page, .login-page, .form-page {
     background-image: url('/static/images/pexels-asadphoto-1450353.jpg');
     background-size: cover;
     background-position: center;

@@ -3,36 +3,34 @@
 {% block title %}Roamio{% endblock %}
 
 {% block content %}
-    <div class="text-center">
-        <h1>Welcome to Roamio</h1>
+    <div class="welcome-section text-center">
+        <h1 class="welcome-title">Welcome to Roamio</h1>
     </div>
     <script>
         let destination = '{{destination_list|escapejs}}'
         console.log(destination)
     </script>
-    <h2>All Destinations</h2>
+    <h2 class="home-heading">The home of Destinations</h2>
     <ul class="list-group">
         {% for destination in destination_list %}
-        <a href = 'destination-details/{{destination.id}}'>
-        <div>
-            <li class="list-group-item">
-                
-                <strong>{{ destination.name }}</strong><br>
-                Location: {{ destination.location }}<br>
-                Description: {{ destination.description }}<br>
-                {% if destination.featured_image %}
-                    {% if "placeholder" in destination.featured_image %}
-                        <img src="" alt="placeholder image" class="img-fluid" style="max-width: 300px;">
-                    {% else %}
-                        <img src="https://res.cloudinary.com/{{cloud_name}}/{{ destination.featured_image}}" alt="{{ destination.name }}" class="img-fluid" style="max-width: 300px;">
+        <li class="list-group-item">
+            <a href='destination-details/{{destination.id}}' class="destination-link">
+                <div class="destination-item">
+                    <strong class="destination-name">{{ destination.name }}</strong><br>
+                    Location: {{ destination.location }}<br>
+                    Description: {{ destination.description }}<br>
+                    {% if destination.featured_image %}
+                        {% if "placeholder" in destination.featured_image %}
+                            <img src="" alt="placeholder image" class="img-fluid placeholder-image">
+                        {% else %}
+                            <img src="https://res.cloudinary.com/{{cloud_name}}/{{ destination.featured_image}}" alt="{{ destination.name }}" class="img-fluid destination-image">
+                        {% endif %}
                     {% endif %}
-                {% endif %}
-            
-            </li>
-        </div>
-    </a>
+                </div>
+            </a>
+        </li>
         {% empty %}
-            <p>No destinations available.</p>
+            <p class="no-destinations">No destinations available.</p>
         {% endfor %}
     </ul>
 {% endblock %}
