@@ -1,0 +1,316 @@
+/* Ensure body takes full height */
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main should grow to fill available space */
+main {
+    flex-grow: 1;
+    background-color: #f5f5f5;
+}
+
+/* Footer styling */
+footer {
+    background-color: #4A90E2; /* Custom blue background */
+    color: #ffffff;
+}
+
+/* Footer Container */
+.footer .container {
+    display: flex;
+    justify-content: space-between; /* Space between text and icons */
+    align-items: center;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px; /* Space between icons */
+    list-style: none; /* Remove default list styling */
+    padding-left: 0; /* Remove default padding */
+}
+
+.social-icons .list-inline-item a {
+    color: #ffffff; /* Icon color */
+    font-size: 1.5rem; /* Icon size */
+    transition: color 0.3s, transform 0.3s; /* Smooth hover effect */
+}
+
+.social-icons .list-inline-item a:hover {
+    color: #F8E71C; /* Hover color */
+    transform: scale(1.1); /* Slightly enlarge icon on hover */
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #4A90E2;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #ffffff !important;
+}
+
+.nav-link {
+    color: #ffffff !important;
+}
+
+.nav-link.active {
+    color: #F8E71C !important;
+}
+
+/* Full Background Image for Signup and Login Pages */
+.signup-page, .login-page {
+    background-image: url('/static/images/pexels-asadphoto-1450353.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* Centered form with styling */
+.signup-page .main-bg, .login-page .main-bg {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Form Header */
+.signup-page form.signup h1, .login-page form.login h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #4A90E2; /* Custom blue color */
+    font-weight: bold;
+}
+
+/* Paragraph Text */
+.signup-page form.signup p, .login-page form.login p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Input Fields Styling */
+.signup-page form.signup input[type="text"],
+.signup-page form.signup input[type="password"],
+.signup-page form.signup input[type="email"],
+.signup-page form.signup select,
+.signup-page form.signup textarea,
+.login-page form.login input[type="text"],
+.login-page form.login input[type="password"],
+.login-page form.login input[type="email"],
+.login-page form.login select,
+.login-page form.login textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+    transition: border-color 0.3s ease;
+}
+
+/* Input Focus Effect */
+.signup-page form.signup input[type="text"]:focus,
+.signup-page form.signup input[type="password"]:focus,
+.signup-page form.signup input[type="email"]:focus,
+.signup-page form.signup select:focus,
+.signup-page form.signup textarea:focus,
+.login-page form.login input[type="text"]:focus,
+.login-page form.login input[type="password"]:focus,
+.login-page form.login input[type="email"]:focus,
+.login-page form.login select:focus,
+.login-page form.login textarea:focus {
+    border-color: #4A90E2; /* Blue border on focus */
+    outline: none;
+}
+
+/* Submit Button Styling */
+.signup-page form.signup button[type="submit"],
+.login-page form.login button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #4A90E2; /* Custom blue background */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Button Hover Effect */
+.signup-page form.signup button[type="submit"]:hover,
+.login-page form.login button[type="submit"]:hover {
+    background-color: #357ABD; /* Darker blue on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Links Inside the Form */
+.signup-page form.signup a, .login-page form.login a {
+    color: #4A90E2;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+/* Link Hover Effect */
+.signup-page form.signup a:hover, .login-page form.login a:hover {
+    color: #357ABD; /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+/* Additional Text Styling */
+.signup-page form.signup p,
+.signup-page form.signup label,
+.login-page form.login p,
+.login-page form.login label {
+    font-size: 1rem;
+    color: #555; /* Subtle gray color */
+    font-weight: 500;
+}
+
+/* Custom styles for the destination form page */
+.form-page {
+    background: #f9f9f9; /* Example background color */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.main-bg {
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Styles for each form group */
+.form-page .form-group {
+    margin-bottom: 20px;
+}
+
+/* Input fields */
+.form-page input[type="text"],
+.form-page input[type="file"],
+.form-page textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific styling for the description textarea */
+.form-page .description-field {
+    height: 200px; /* Adjust this value to make it 4 times larger */
+}
+
+/* Labels */
+.form-page label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Buttons */
+.form-page .btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.form-page .btn-primary {
+    background-color: #4A90E2;
+    color: #ffffff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.form-page .btn-primary:hover {
+    background-color: #357ABD;
+}
+
+.form-page .btn-secondary {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+}
+
+.form-page .btn-secondary:hover {
+    background-color: #bbb;
+}
+
+/* Styles for the logout page */
+.logout-page {
+    background: #f5f5f5; /* Light gray background */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.main-bg {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.logout-page .btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+}
+
+.logout-page .btn-primary {
+    background-color: #4A90E2;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+.logout-page .btn-primary:hover {
+    background-color: #357ABD;
+}
+
+.logout-page .btn-secondary {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+}
+
+.logout-page .btn-secondary:hover {
+    background-color: #bbb;
+}
+
+.logout-page h3 {
+    color: #4A90E2; /* Custom blue color */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.logout-page p {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
