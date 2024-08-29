@@ -166,3 +166,9 @@ The focus of the website is on creating a user-centric platform that inspires us
 
 4- Contribute Content: Users want to contribute their own travel experiences to the website and share them with others.
 
+#### Project Status and Request for Extension
+Unfortunately, I was unable to complete the project and the README by the original deadline. Despite working diligently and putting in long hours, I encountered some challenges and struggled with the learning process, which has affected my progress and sleep.
+
+I apologize for any inconvenience this may cause. I am requesting an extension to finalize the project and ensure it meets the highest standards. Thank you for your understanding and patience.
+
+If not maybe it is possible that this project can still achieve a grade.
