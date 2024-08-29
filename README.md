@@ -1,14 +1,18 @@
 # Roamio
 
-![roamio responsive screenshot](readme/am_i_responsive.png)
+![roamio responsive screenshot](static/images/amiresponsive.png)
 
 ## Introduction
 
 Roamio is a travel destination website, and the name "Roamio" symbolizes the joy of exploring new places and the spirit of adventure. Roamio has been developed as part of the Code Institute's Full-Stack Developer course as my final project—focusing on Django and Bootstrap frameworks, database manipulation, and CRUD functionality.
 
-View the live site here: [Roamio](https://roamio-rano-19b1e34433ec.herokuapp.com/)
+View the live site here: [Roamio](https://roamio-b0271c7950f0.herokuapp.com/)
 
-For Admin access with relevant sign-in information: [Roamio Admin](https://roamio-rano-19b1e34433ec.herokuapp.com/admin/)
+For Admin access with relevant sign-in information: [Roamio Admin](https://roamio-b0271c7950f0.herokuapp.com/admin/)
+
+- Username : john9810
+
+- Password : malahide
 
 <hr>
 
